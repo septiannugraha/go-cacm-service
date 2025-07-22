@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"path/filepath"
 	"time"
 
 	"github.com/septiannugraha/go-cacm-service/internal/database"
