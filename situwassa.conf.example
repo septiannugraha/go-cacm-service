@@ -1,0 +1,7 @@
+{
+  "server": "localhost",
+  "integrated_security": false,
+  "user_id": "sa",
+  "password": "YourPassword",
+  "databases": ["PEMDA_2024", "PEMDA_2025"]
+}

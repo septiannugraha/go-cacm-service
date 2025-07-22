@@ -1,0 +1,182 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+option go_package = "github.com/septiannugraha/go-cacm-service/pb";
+
+package cacm;
+
+// Define a message
+message QueryResultItem {
+int32 id = 1;
+  int32 tahun = 2;
+  string kode_desa = 3;
+  string kode_kegiatan = 4;
+  string kode_paket = 5;
+  string kode_rekening = 6;
+  string kode_sumber = 7;
+  string tagging = 8;
+  int64 anggaran1 = 9;
+  int64 anggaran2 = 10;
+  int64 real1 = 11;
+  int64 real2 = 12;
+  int64 real3 = 13;
+  int64 real4 = 14;
+  int64 real5 = 15;
+  int64 real6 = 16;
+  int64 real7 = 17;
+  int64 real8 = 18;
+  int64 real9 = 19;
+  int64 real10 = 20;
+  int64 real11 = 21;
+  int64 real12 = 22;
+  int64 totalreal = 23;
+  int32 tahun_id = 24;
+  int32 desa_id = 25;
+  string keterangan = 26;
+  int32 validated = 27;
+  int32 sumber_id = 28;
+  int64 created_at = 29; // Assuming UNIX timestamp or similar representation
+  int32 imported_id = 30;
+  string nama_rekening = 31;
+  string nama_sumber = 32;
+  string nama_desa = 33;
+  string nama_kegiatan = 34;
+  string id_sinkronisasi = 35; // Guid can be represented as string
+  bool is_sinkron = 36;
+  google.protobuf.StringValue nama_paket = 37;
+  string kode_pemda = 38;
+  string nama_pemda = 39;
+  int32 ref_data_desa_id = 40;
+  int32 ref_data_kegiatan_id = 41;
+  int32 ref_data_pemda_id = 42;
+  int32 ref_data_sumber = 43;
+  int32 upload_id = 44;
+    google.protobuf.StringValue id_tipologi = 45;
+}
+
+message QueryResults {
+    repeated QueryResultItem rows = 1;
+}
+
+service QueryResultService {
+    rpc SendQueryResult(stream QueryResults) returns (google.protobuf.Empty) {}
+}
+
+message BelanjaPerBidangPerSumberResult {
+  string tahun = 1;
+  string kode_prov = 2;
+  string nama_prov = 3;
+  string kode_pemda = 4;
+  string nama_pemda = 5;
+  string kode_kec = 6;
+  string nama_kec = 7;
+  string kodedesa = 8;
+  string nama_desa = 9;
+  int32 kode_posting = 10;
+  string sumber_dana = 11;
+  double angg_Bid01 = 12;
+  double real_Bid01 = 13;
+  double angg_Bid02 = 14;
+  double real_Bid02 = 15;
+  double angg_Bid03 = 16;
+  double real_Bid03 = 17;
+  double angg_Bid04 = 18;
+  double real_Bid04 = 19;
+  double angg_Bid05 = 20;
+  double real_Bid05 = 21;
+  string currentdate = 22;
+}
+
+message BelanjaPerBidangPerSumberResults {
+    repeated BelanjaPerBidangPerSumberResult rows = 1;
+}
+
+message BelanjaPerJenisPerSumberResult {
+  string tahun = 1;
+  string kode_prov = 2;
+  string nama_prov = 3;
+  string kode_pemda = 4;
+  string nama_pemda = 5;
+  string kode_kec = 6;
+  string nama_kec = 7;
+  string kodedesa = 8;
+  string nama_desa = 9;
+  int32 kode_posting = 10;
+  string SumberDana = 11;
+  double angg_51 = 12;
+  double real_51 = 13;
+  double angg_52 = 14;
+  double real_52 = 15;
+  double angg_53 = 16;
+  double real_53 = 17;
+  double angg_54 = 18;
+  double real_54 = 19;
+  string currentdate = 20;
+}
+
+message BelanjaPerJenisPerSumberResults {
+    repeated BelanjaPerJenisPerSumberResult rows = 1;
+}
+
+message PendapatanPerSumberResult {
+  string tahun = 1;
+  string kode_prov = 2;
+  string nama_prov = 3;
+  string kode_pemda = 4;
+  string nama_pemda = 5;
+  string kode_kec = 6;
+  string nama_kec = 7;
+  string kodedesa = 8;
+  string nama_desa = 9;
+  int32 kode_posting = 10;
+  string SumberDana = 11;
+  double angg_pendapatan = 12;
+  double real_pendapatan = 13;
+  string currentdate = 14;
+}
+
+message PendapatanPerSumberResults {
+    repeated PendapatanPerSumberResult rows = 1;
+}
+
+message PenerimaanPembiayaanPerSumberResult {
+  string tahun = 1;
+  string kode_prov = 2;
+  string nama_prov = 3;
+  string kode_pemda = 4;
+  string nama_pemda = 5;
+  string kode_kec = 6;
+  string nama_kec = 7;
+  string kodedesa = 8;
+  string nama_desa = 9;
+  int32 kode_posting = 10;
+  string sumber_dana = 11;
+  double angg_61 = 12;
+  double real_61 = 13;
+  string currentdate = 14;
+}
+
+message PenerimaanPembiayaanPerSumberResults {
+  repeated PenerimaanPembiayaanPerSumberResult rows = 1;
+}
+
+message PengeluaranPembiayaanPerSumberResult {
+  string tahun = 1;
+  string kode_prov = 2;
+  string nama_prov = 3;
+  string kode_pemda = 4;
+  string nama_pemda = 5;
+  string kode_kec = 6;
+  string nama_kec = 7;
+  string kodedesa = 8;
+  string nama_desa = 9;
+  int32 kode_posting = 10;
+  string sumber_dana = 11;
+  double angg_PBY62 = 12;
+  double real_PBY62 = 13;
+  string currentdate = 14;
+}
+
+message PengeluaranPembiayaanPerSumberResults {
+  repeated PengeluaranPembiayaanPerSumberResult rows = 1;
+}
